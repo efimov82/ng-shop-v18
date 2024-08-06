@@ -34,4 +34,33 @@ export class CartService {
     cartItem['count']++;
     cartItems.set(productId, cartItem);
   }
+
+  public increaseItemQuantity(productId: number): void {
+    const cartItems = this.cartItems();
+    let item = cartItems.get(productId);
+
+    if (item) {
+      item['count']++;
+      cartItems.set(productId, item);
+
+      this.cartItems.set(cartItems);
+    }
+  }
+
+  public decreaseItemQuantity(productId: number): void {
+    const cartItems = this.cartItems();
+    let item = cartItems.get(productId);
+
+    if (item) {
+      item['count']--;
+
+      if (item['count'] > 0) {
+        cartItems.set(productId, item);
+      } else {
+        cartItems.delete(productId);
+      }
+
+      this.cartItems.set(cartItems);
+    }
+  }
 }

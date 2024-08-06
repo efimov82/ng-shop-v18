@@ -33,13 +33,11 @@ export class CartComponent implements OnInit {
     return totalPrice;
   }
 
-  public handleIncreaseQuantity($event: number): void {
-    console.log($event);
-    // TODO: add implementation
+  public handleIncreaseQuantity(productId: number): void {
+    this.cartService.increaseItemQuantity(productId);
   }
 
-  public handleDecreaseQuantity($event: number): void {
-    console.log($event);
-    // TODO: add implementation
+  public handleDecreaseQuantity(productId: number): void {
+    this.cartService.decreaseItemQuantity(productId);
   }
 }
