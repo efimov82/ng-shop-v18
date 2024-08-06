@@ -1,12 +1,12 @@
 import { Component, OnInit, Signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { CartService } from './services';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { ICartItem } from './models';
+import { CartService } from './services';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
@@ -17,10 +17,7 @@ export class AppComponent implements OnInit {
 
   constructor(public cartService: CartService) {}
 
-
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
-
-    console.log('countItemsInCart=', this.cartItems);
   }
 }

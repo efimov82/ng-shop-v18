@@ -1,14 +1,15 @@
-import { Component, OnInit, Signal } from '@angular/core';
 import { CurrencyPipe, KeyValuePipe } from '@angular/common';
+import { Component, OnInit, Signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
-import { CartService } from '../../services';
 import { ICartItem } from '../../models';
+import { CartService } from '../../services';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 
 @Component({
   selector: 'app-cart',
   standalone: true,
-  imports: [KeyValuePipe, CartItemComponent, CurrencyPipe],
+  imports: [KeyValuePipe, CartItemComponent, CurrencyPipe, RouterLink],
   templateUrl: './cart.component.html',
   styleUrl: './cart.component.scss'
 })
@@ -19,8 +20,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit() {
     this.cartItems = this.cartService.getCartItems();
-
-    console.log(this.cartItems);
   }
 
   public getTotalPrice() {

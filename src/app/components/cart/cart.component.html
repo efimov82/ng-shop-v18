@@ -10,6 +10,6 @@
   <div class="total-sum">Total sum: {{ getTotalPrice() | currency }}</div>
 
   @if (cartItems().size > 0) {
-    <button type="button" class="btn btn-primary">Checkout</button>
+    <a class="btn btn-primary" routerLink="/checkout">Checkout</a>
   }
 </div>

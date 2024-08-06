@@ -1,10 +1,9 @@
 <nav class="navbar navbar-expand-lg navbar-light mainMenu">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">NG signals shop</a>
+    <a class="navbar-brand" routerLink="/">NG signals shop</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      </ul>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
       <div class="d-flex">
         <button
           class="btn btn-primary"
@@ -13,7 +12,8 @@
           data-bs-target="#offcanvasRight"
           aria-controls="offcanvasRight"
         >
-        <i class="fa-solid fa-cart-plus"></i> {{cartService.getCartItemsCount()}} items
+          <i class="fa-solid fa-cart-plus"></i>
+          {{ cartService.getCartItemsCount() }} items
         </button>
       </div>
     </div>
