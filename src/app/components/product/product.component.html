@@ -1,0 +1,20 @@
+<div class="card productCard">
+  <div class="card-body {{ getClassNameForCard() }}">
+    <!-- <h5 class="card-title">{{ data().name }}</h5> -->
+    <p><img src="/assets/images/{{ data().image }}" /></p>
+    <p class="card-text">{{ data().description }} ({{ data().count }})</p>
+    <div class="cardInfo">
+      <div class="itemPrice">
+        Price: <span class="productPrice">${{ data().price }}/1kg</span>
+      </div>
+      @if (data().count > 0) {
+      <button (click)="addToCart()" class="btn">
+        <i class="itemAddToCartIcon fa-solid fa-cart-plus"></i>
+      </button>
+      }
+    </div>
+    @if (data().count === 0) {
+      <div class="py-2 text-secondary">Not available</div>
+    }
+  </div>
+</div>

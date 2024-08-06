@@ -1,0 +1,20 @@
+<div class="cartItemContainer">
+  <img src="/assets/images/{{ data().product.image }}" />
+  <div class="itemCount">{{ data().count }}</div>
+  <div class="itemInfo">
+    <div class="itemDetails">
+      {{ data().product.name }}
+      <div class="itemPrice">
+        {{ data().product.price * data().count | currency }}
+      </div>
+    </div>
+    <div class="buttons">
+      <button class="increaseItemBtn" (click)="increaseItemQuantity()">
+        <i class="fa-solid fa-plus"></i>
+      </button>
+      <button class="decreaseItemBtn" (click)="decreaseItemQuantity()">
+        <i class="fa-solid fa-minus"></i>
+      </button>
+    </div>
+  </div>
+</div>

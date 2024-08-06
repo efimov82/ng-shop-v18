@@ -1,0 +1,40 @@
+.productCard {
+  width: 300px;
+  border: 0;
+  text-align: center;
+}
+
+.productPrice {
+  font-style: italic;
+  font-size: 18px;
+}
+
+.product-not-available {
+  opacity: 0.45;
+
+  .cardInfo {
+    display: none;
+  }
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  
+  .itemPrice {
+    align-self: center;
+  }
+
+  .itemAddToCartIcon {
+    width: 28px;
+    height: 28px;
+    color: #006226;
+    opacity: .6;
+
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+}

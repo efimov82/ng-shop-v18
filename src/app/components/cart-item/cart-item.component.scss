@@ -1,0 +1,50 @@
+.cartItemContainer {
+  display: flex;
+
+  img {
+    width: 55px;
+    height: 55px;
+  }
+  
+  .itemCount {
+    // display: flex;
+    border-radius: 50%;
+    border: 1px solid #e7e7e7;
+    background-color: #ffffff;
+    width: 32px;
+    height: 32px;
+    align-content: center;
+    align-self: center;
+    text-align: center;
+    margin: 0 10px;
+  }
+
+  .itemInfo {
+    display: flex;
+    align-self: center;
+    flex-grow: 1;
+    justify-content: space-between;
+
+    .itemDetails {
+      display: flex;
+      align-items: center;
+
+      .itemPrice {
+        margin-left: 8px;
+        font-weight: 800;
+      }
+    }
+
+    .buttons {
+      align-self: center;
+
+      .increaseItemBtn,
+      .decreaseItemBtn {
+        border: none;
+        border-radius: 10px;
+        background-color: #f4f1f1;
+        margin: auto 4px;
+      }
+    }
+  }
+}
