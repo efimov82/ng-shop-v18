@@ -19,6 +19,16 @@ export class CartService {
     return count;
   }
 
+  public getTotalPrice(): number {
+    let totalPrice = 0;
+
+    this.cartItems().forEach((item, id) => {
+      totalPrice += item.product.price * item.count;
+    });
+
+    return totalPrice;
+  }
+
   public addItemToCart(item: IProduct): void {
     const cartItems = this.cartItems();
     const productId = item['id'];
@@ -62,5 +72,9 @@ export class CartService {
 
       this.cartItems.set(cartItems);
     }
+  }
+
+  public clearCart(): void {
+    this.cartItems.set(new Map());
   }
 }

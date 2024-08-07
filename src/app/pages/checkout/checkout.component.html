@@ -1,1 +1,141 @@
-<p>checkout works!</p>
+<div class="container">
+  <div class="products-list">
+    @for (cartItem of cartItems() | keyvalue; track cartItem.key) {
+    <app-cart-item
+      [data]="cartItem.value"
+      (onIncreaseQuantity)="handleIncreaseQuantity($event)"
+      (onDecreaseQuantity)="handleDecreaseQuantity($event)"
+    />
+    }
+  </div>
+  <div class="total-sum">Total sum: {{ getTotalPrice() | currency }}</div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="first-name" class="form-label">First Name *: </label>
+      <input
+        id="first-name"
+        type="text"
+        class="form-control"
+        formControlName="firstName"
+      />
+
+      @if (form?.get('firstName')?.touched) {
+      <app-field-error>
+        @switch (true) { @case (form.get('firstName')?.hasError('required')) {
+        First Name is required } @case
+        (form.get('firstName')?.hasError('minlength')) { First Name must be
+        minimum 3 characters in length } }
+      </app-field-error>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="last-name" class="form-label">Last Name: </label>
+      <input
+        id="last-name"
+        type="text"
+        class="form-control"
+        formControlName="lastName"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone number *: </label>
+      <input
+        id="phone"
+        type="text"
+        class="form-control"
+        formControlName="phone"
+      />
+      @if (form?.get('phone')?.touched) {
+      <app-field-error>
+        @switch (true) { @case (form.get('phone')?.hasError('required')) { Phone
+        is required } @case (form.get('phone')?.hasError('minlength')) { Phone
+        must be minimum 6 characters in length } @case
+        (form.get('phone')?.hasError('pattern')) { Only numbers are allowed } }
+      </app-field-error>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email *: </label>
+      <input
+        id="email"
+        type="text"
+        class="form-control"
+        formControlName="email"
+      />
+      @if (form?.get('email')?.touched) {
+      <app-field-error>
+        @switch (true) { @case (form.get('email')?.hasError('required')) { Email
+        is required } @case (form.get('email')?.hasError('email')) { Wrong email
+        format } }
+      </app-field-error>
+      }
+    </div>
+    <div class="mb-3">
+      <label for="deliveryType" class="form-label">Delivery type *</label>
+      <select
+        id="deliveryType"
+        formControlName="deliveryType"
+        class="form-control"
+        (ngModelChange)="onChangeDeliveryType($event)"
+      >
+        <option [ngValue]="0">-- Select type --</option>
+        <option [ngValue]="1">Pickup by myself</option>
+        <option [ngValue]="2">Courier delivery</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <label for="deliveryDate" class="form-label"
+        >Delivery (pickup) date *</label
+      >
+      <input
+        type="date"
+        class="form-control"
+        formControlName="deliveryDate"
+        (ngModelChange)="onChangeDeliveryDate($event)"
+      />
+    </div>
+    @if (deliveryTypeValue() === 2) {
+    <div formGroupName="address" class="mb-3">
+      <h5>Address</h5>
+
+      <label for="city" class="form-label">City *: </label>
+      <input
+        id="city"
+        type="text"
+        class="form-control"
+        formControlName="city"
+      />
+
+      <label for="street" class="form-label">Street *: </label>
+      <input
+        id="street"
+        type="text"
+        class="form-control"
+        formControlName="street"
+      />
+
+      <label for="house" class="form-label">House *: </label>
+      <input
+        id="house"
+        type="text"
+        class="form-control"
+        formControlName="house"
+      />
+
+      <label for="room" class="form-label">Room: </label>
+      <input
+        id="room"
+        type="text"
+        class="form-control"
+        formControlName="room"
+      />
+    </div>
+    } @if(!form.valid) {
+    <div class="mb-2">Complete the form.</div>
+    }
+    <button type="submit" [disabled]="!form.touched" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>

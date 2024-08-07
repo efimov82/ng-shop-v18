@@ -1,5 +1,6 @@
 import { KeyValuePipe } from '@angular/common';
 import { Component, WritableSignal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import {
   CartComponent,
   CartItemComponent,
@@ -11,7 +12,13 @@ import { CartService, ProductsService } from '../../services';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CartComponent, CartItemComponent, ProductComponent, KeyValuePipe],
+  imports: [
+    CartComponent,
+    CartItemComponent,
+    ProductComponent,
+    KeyValuePipe,
+    RouterLink,
+  ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
