@@ -20,7 +20,7 @@
         formControlName="firstName"
       />
 
-      @if (form?.get('firstName')?.touched) {
+      @if (form.get('firstName')?.touched) {
       <app-field-error>
         @switch (true) { @case (form.get('firstName')?.hasError('required')) {
         First Name is required } @case
@@ -46,7 +46,7 @@
         class="form-control"
         formControlName="phone"
       />
-      @if (form?.get('phone')?.touched) {
+      @if (form.get('phone')?.touched) {
       <app-field-error>
         @switch (true) { @case (form.get('phone')?.hasError('required')) { Phone
         is required } @case (form.get('phone')?.hasError('minlength')) { Phone
@@ -63,7 +63,7 @@
         class="form-control"
         formControlName="email"
       />
-      @if (form?.get('email')?.touched) {
+      @if (form.get('email')?.touched) {
       <app-field-error>
         @switch (true) { @case (form.get('email')?.hasError('required')) { Email
         is required } @case (form.get('email')?.hasError('email')) { Wrong email

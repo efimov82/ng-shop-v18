@@ -26,8 +26,4 @@ export class ProductsService {
   public getProducts(): WritableSignal<Map<number, IProduct>> {
     return this.products;
   }
-
-  public decreaseCount(productId: number): boolean {
-    return true;
-  }
 }

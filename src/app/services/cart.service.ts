@@ -22,7 +22,7 @@ export class CartService {
   public getTotalPrice(): number {
     let totalPrice = 0;
 
-    this.cartItems().forEach((item, id) => {
+    this.cartItems().forEach((item) => {
       totalPrice += item.product.price * item.count;
     });
 
@@ -47,7 +47,7 @@ export class CartService {
 
   public increaseItemQuantity(productId: number): void {
     const cartItems = this.cartItems();
-    let item = cartItems.get(productId);
+    const item = cartItems.get(productId);
 
     if (item) {
       item['count']++;
@@ -59,7 +59,7 @@ export class CartService {
 
   public decreaseItemQuantity(productId: number): void {
     const cartItems = this.cartItems();
-    let item = cartItems.get(productId);
+    const item = cartItems.get(productId);
 
     if (item) {
       item['count']--;

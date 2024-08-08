@@ -1,5 +1,5 @@
 import { CurrencyPipe, KeyValuePipe } from '@angular/common';
-import { Component, Signal } from '@angular/core';
+import { Component, OnInit, Signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -35,7 +35,7 @@ import { CartService, OrdersService } from '../../services';
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.scss',
 })
-export class CheckoutComponent {
+export class CheckoutComponent implements OnInit {
   public cartItems!: Signal<Map<number, ICartItem>>;
 
   form = new FormRecord({
@@ -71,7 +71,7 @@ export class CheckoutComponent {
   }
 
   public deliveryTypeValue(): number {
-    let val = this.form.get('deliveryType')?.value?.toString() ?? '';
+    const val = this.form.get('deliveryType')?.value?.toString() ?? '';
     return Number(val);
   }
   public getTotalPrice() {
@@ -104,7 +104,7 @@ export class CheckoutComponent {
   onChangeDeliveryDate(value: string): void {
     const date = new Date(value);
     const today = new Date();
-    let tommorow = new Date();
+    const tommorow = new Date();
     tommorow.setDate(today.getDate() + 1);
 
     const orderDate = new Date(
@@ -137,7 +137,7 @@ export class CheckoutComponent {
       email: formData['firstName']?.toString() ?? '',
     };
 
-    let itemsArr: ICartItem[] = [];
+    const itemsArr: ICartItem[] = [];
     this.cartItems().forEach((item) => {
       itemsArr.push(item);
     });
@@ -149,7 +149,7 @@ export class CheckoutComponent {
       deliveryType: Number(formData['deliveryType']) ?? 1,
     };
 
-    this.ordersService.createOrder(data).subscribe((response) => {
+    this.ordersService.createOrder(data).subscribe(() => {
       this.cartService.clearCart();
       this.router.navigate(['/thanks']);
     });

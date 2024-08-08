@@ -1,5 +1,5 @@
-import { Component, OnInit, input, output } from '@angular/core';
 import { CurrencyPipe } from '@angular/common';
+import { Component, input, output } from '@angular/core';
 import { ICartItem } from '../../models';
 
 @Component({

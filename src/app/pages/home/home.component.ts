@@ -1,5 +1,5 @@
 import { KeyValuePipe } from '@angular/common';
-import { Component, WritableSignal } from '@angular/core';
+import { Component, OnInit, WritableSignal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {
   CartComponent,
@@ -22,7 +22,7 @@ import { CartService, ProductsService } from '../../services';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   public products!: WritableSignal<Map<number, IProduct>>;
 
   constructor(
