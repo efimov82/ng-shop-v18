@@ -15,6 +15,10 @@
 </nav>
 
 <main class="main">
+  @if (isLoading()) {
+    <app-loader id="loader" />
+  }
+
   <div class="content">
     <router-outlet />
   </div>

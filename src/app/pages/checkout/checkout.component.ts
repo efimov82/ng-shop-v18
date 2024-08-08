@@ -12,11 +12,10 @@ import { Router, RouterModule } from '@angular/router';
 import {
   CartComponent,
   CartItemComponent,
+  FieldErrorComponent,
   ProductComponent,
 } from '../../components';
-import { FieldErrorComponent } from '../../components/field-error/field-error.component';
-import { DeliveryType, ICartItem, IOrder } from '../../models';
-import { IPersonalData } from '../../models/IPersonalData';
+import { DeliveryType, ICartItem, IOrder, IPersonalData } from '../../models';
 import { CartService, OrdersService } from '../../services';
 
 @Component({

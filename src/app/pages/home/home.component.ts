@@ -34,10 +34,6 @@ export class HomeComponent implements OnInit {
     this.products = this.productsServide.getProducts();
   }
 
-  public addValue() {
-    this.productsServide.counter.set(this.productsServide.counter() + 1);
-  }
-
   public handleAddProductToCart($event: number) {
     const product = this.products().get($event);
 
