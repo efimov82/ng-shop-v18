@@ -131,9 +131,9 @@ export class CheckoutComponent implements OnInit {
 
     const personalData: IPersonalData = {
       firstName: formData['firstName']?.toString() ?? '',
-      lastName: formData['firstName']?.toString() ?? '',
-      phone: formData['firstName']?.toString() ?? '',
-      email: formData['firstName']?.toString() ?? '',
+      lastName: formData['lastName']?.toString() ?? '',
+      phone: formData['phone']?.toString() ?? '',
+      email: formData['email']?.toString() ?? '',
     };
 
     const itemsArr: ICartItem[] = [];

@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, delay, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { IOrder } from '../models';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class OrdersService {
-  constructor(private http: HttpClient) {}
+export class OrdersService extends BaseService {
+  constructor(private http: HttpClient) {
+    super();
+  }
 
   /*
-  * Get list orders created current customer
-  */
+   * Get list orders created current customer
+   */
   public getOrders(): IOrder[] {
     // TODO: implement this feature with REST API
 
@@ -20,15 +23,13 @@ export class OrdersService {
 
   public createOrder(data: IOrder): Observable<IOrder> {
     // TODO: impliment REST API request + loader here
-    // const order: IOrder = {
-    //   items: data.items,
-    //   personalData: data.personalData,
-    // };
-    // return this.http.post<IOrder>('url', order);
+    const order: IOrder = {
+      items: data.items,
+      personalData: data.personalData,
+      deliveryDate: data.deliveryDate,
+      deliveryType: data.deliveryType,
+    };
 
-    // Fake request
-    const res$ = of(data).pipe(delay(3000));
-
-    return res$;
+    return this.http.post<IOrder>(`${this.baseUrl}/orders`, order);
   }
 }

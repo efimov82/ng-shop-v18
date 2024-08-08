@@ -1,25 +1,38 @@
-import { Injectable, WritableSignal, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable, WritableSignal, signal } from '@angular/core';
 
 import { IProduct } from '../models';
+import { LoaderService } from './loader.service';
+import { BaseService } from './base.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ProductsService {
-  products = signal<Map<number, IProduct>>(new Map());
-  counter = signal<number>(0);
+export class ProductsService extends BaseService {
+  private products = signal<Map<number, IProduct>>(new Map());
 
-  constructor(private http: HttpClient) {
-    this.http.get('assets/data.json').subscribe((data) => {
-      const productsRaw = data as IProduct[];
-      const productsArr: Map<number, IProduct> = new Map([]);
+  constructor(private http: HttpClient, private loaderService: LoaderService) {
+    super();
 
-      productsRaw.forEach((data) => {
-        productsArr.set(data.id, data);
-      });
+    this.loaderService.setIsLoading(true);
 
-      this.products.set(productsArr);
+    this.http.get(`${this.baseUrl}/products`).subscribe({
+      next: (data) => {
+        const productsRaw = data as IProduct[];
+        const productsArr: Map<number, IProduct> = new Map([]);
+
+        productsRaw.forEach((data) => {
+          productsArr.set(data.id, data);
+        });
+
+        this.products.set(productsArr);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+      complete: () => {
+        this.loaderService.setIsLoading(false);
+      },
     });
   }
 
