@@ -1,9 +1,26 @@
 import { Routes } from '@angular/router';
-import { CheckoutComponent, HomeComponent, ThanksComponent } from './pages';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'checkout', component: CheckoutComponent },
-  { path: 'thanks', component: ThanksComponent },
-  { path: ':page', component: HomeComponent },
+  {
+    path: '',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'checkout',
+    loadComponent: () =>
+      import('./pages/checkout/checkout.component').then(
+        (m) => m.CheckoutComponent
+      ),
+  },
+  {
+    path: 'thanks',
+    loadComponent: () =>
+      import('./pages/thanks/thanks.component').then((m) => m.ThanksComponent),
+  },
+  {
+    path: ':page',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
+  },
 ];
