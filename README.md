@@ -1,5 +1,5 @@
 # ShopSignals
-This is small project for play around with Signals and new API Inputs and Outputs in Angular 17+.
+This is small project for play around with Signals and new API Inputs and Outputs, Zoneless in Angular 18+.
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
 
 ## Development server
