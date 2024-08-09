@@ -18,3 +18,8 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Screenshots
+
+![Main page](https://github.com/efimov82/ng-shop-v18/blob/main/screenshots/main.jpg?raw=true)
+![Checkout page](https://github.com/efimov82/ng-shop-v18/blob/main/screenshots/checkout.jpg?raw=true)
