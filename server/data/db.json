@@ -49,12 +49,84 @@
       "image": "onion.webp"
     },
     {
-      "id": 10,
-      "name": "Test",
-      "description": "Fresh tomato from Bularus",
+      "id": 7,
+      "name": "Broccoli",
+      "description": "Fresh broccoli from Bularus",
       "count": 2,
       "price": 2.7,
-      "image": "test.webp"
+      "image": "broccoli.webp"
+    },
+    {
+      "id": 8,
+      "name": "Watermelon",
+      "description": "Watermelon from Bularus",
+      "count": 20,
+      "price": 0.7,
+      "image": "watermelon.webp"
+    },
+    {
+      "id": 9,
+      "name": "Lemon",
+      "description": "Lemon from Bularus",
+      "count": 20,
+      "price": 0.5,
+      "image": "lemon.webp"
+    },
+    {
+      "id": 10,
+      "name": "Apple",
+      "description": "Apple from Bularus",
+      "count": 10,
+      "price": 1.23,
+      "image": "apple.webp"
+    },
+    {
+      "id": 11,
+      "name": "Nectarine",
+      "description": "Nectarine from Bularus",
+      "count": 14,
+      "price": 1.45,
+      "image": "nectarine.webp"
+    },
+    {
+      "id": 12,
+      "name": "Peach",
+      "description": "Peach from Bularus",
+      "count": 11,
+      "price": 2.35,
+      "image": "peach.webp"
+    },
+    {
+      "id": 13,
+      "name": "Melon",
+      "description": "Melon from Bularus",
+      "count": 11,
+      "price": 2.35,
+      "image": "melon.webp"
+    },
+    {
+      "id": 14,
+      "name": "Lime",
+      "description": "Lime from Bularus",
+      "count": 15,
+      "price": 1.42,
+      "image": "lime.webp"
+    },
+    {
+      "id": 15,
+      "name": "Kiwi",
+      "description": "Kiwi from Bularus",
+      "count": 15,
+      "price": 1.42,
+      "image": "kiwi.webp"
+    },
+    {
+      "id": 16,
+      "name": "Pomegranate",
+      "description": "Pomegranate from Bularus",
+      "count": 4,
+      "price": 3.20,
+      "image": "pomegranate.webp"
     }
   ],
   "orders": [
@@ -66,6 +138,79 @@
       "deliveryDate": "2024-08-10",
       "deliveryType": 1,
       "state": 1
+    },
+    {
+      "items": [
+        {
+          "id": 1,
+          "product": {
+            "id": 1,
+            "name": "Tomato",
+            "description": "Fresh tomato from Bularus",
+            "count": 4,
+            "price": 1.7,
+            "image": "tomato.webp"
+          },
+          "count": 1
+        },
+        {
+          "id": 2,
+          "product": {
+            "id": 2,
+            "name": "Bananas",
+            "description": "Fresh bananas from Bularus",
+            "count": 3,
+            "price": 5.04,
+            "image": "banana.webp"
+          },
+          "count": 3
+        },
+        {
+          "id": 4,
+          "product": {
+            "id": 4,
+            "name": "Cucumbers",
+            "description": "Fresh cucumbers from Bularus",
+            "count": 6,
+            "price": 2.67,
+            "image": "cucumbers.webp"
+          },
+          "count": 1
+        },
+        {
+          "id": 6,
+          "product": {
+            "id": 6,
+            "name": "Onion",
+            "description": "Fresh onion from Bularus",
+            "count": 5,
+            "price": 3.15,
+            "image": "onion.webp"
+          },
+          "count": 1
+        },
+        {
+          "id": 5,
+          "product": {
+            "id": 5,
+            "name": "Carrots",
+            "description": "Fresh carrots from Bularus",
+            "count": 2,
+            "price": 2.45,
+            "image": "carrots.webp"
+          },
+          "count": 1
+        }
+      ],
+      "personalData": {
+        "firstName": "Danil",
+        "lastName": "Danil",
+        "phone": "Danil",
+        "email": "Danil"
+      },
+      "deliveryDate": "2024-08-10",
+      "deliveryType": 1,
+      "id": 13
     }
   ]
 }
