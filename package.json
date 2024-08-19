@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
-    "mock:server": "json-server --delay 400 --watch ./server/data/db.json"
+    "mock:server": "json-server --delay 400 --watch ./server/data/db.json",
+    "generate:models": "openapi-generator generate --global-property models,apis -i http://localhost:3000/api/doc.json -g typescript-angular -o src/app/models/generated --skip-validate-spec"
   },
   "private": true,
   "dependencies": {
