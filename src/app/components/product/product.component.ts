@@ -1,5 +1,5 @@
 import { Component, input, output } from '@angular/core';
-import { IProduct } from '../../models';
+import { Product } from '../../models';
 
 @Component({
   selector: 'app-product',
@@ -9,7 +9,7 @@ import { IProduct } from '../../models';
   styleUrl: './product.component.scss',
 })
 export class ProductComponent {
-  data = input.required<IProduct>();
+  data = input.required<Product>();
   id = input.required<number>();
 
   onAddToCart = output<number>();
@@ -19,6 +19,6 @@ export class ProductComponent {
   }
 
   public getClassNameForCard(): string {
-    return this.data().count === 0 ? 'product-not-available' : '';
+    return ''; //this.data().count === 0 ? 'product-not-available' : '';
   }
 }

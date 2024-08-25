@@ -1,13 +1,14 @@
 import { Injectable, Signal, signal } from '@angular/core';
-import { ICartItem, IProduct } from '../models';
+import { Product } from '../models';
+import { OrderItemDto } from '../models/generated/model/orderItemDto';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  protected cartItems = signal<Map<number, ICartItem>>(new Map());
+  protected cartItems = signal<Map<number, OrderItemDto>>(new Map());
 
-  public getCartItems(): Signal<Map<number, ICartItem>> {
+  public getCartItems(): Signal<Map<number, OrderItemDto>> {
     return this.cartItems.asReadonly();
   }
 
@@ -23,22 +24,22 @@ export class CartService {
     let totalPrice = 0;
 
     this.cartItems().forEach((item) => {
-      totalPrice += item.product.price * item.count;
+      totalPrice += 0; //item.Product.price * item.count;
     });
 
     return totalPrice;
   }
 
-  public addItemToCart(item: IProduct): void {
+  public addItemToCart(item: Product): void {
     const cartItems = this.cartItems();
     const productId = item['id'];
-    let cartItem: ICartItem;
+    let cartItem: OrderItemDto;
     const existItem = cartItems.get(productId);
 
     if (existItem) {
       cartItem = existItem;
     } else {
-      cartItem = { id: item.id, product: item, count: 0 };
+      cartItem = { product_id: item.id, count: 0 };
     }
 
     cartItem['count']++;

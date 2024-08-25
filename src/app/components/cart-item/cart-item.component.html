@@ -1,11 +1,14 @@
 <div class="cartItemContainer">
-  <img src="/assets/images/{{ data().product.image }}" alt="{{ data().product.name }} image" />
+  <!-- TODO change to real Product here -->
+  <img src="/assets/images/{{ data().product_id }}" alt="{{ data().product_id }} image" />
   <div class="itemCount">{{ data().count }}</div>
   <div class="itemInfo">
     <div class="itemDetails">
-      {{ data().product.name }}
+      <!-- {{ data().product.name }} -->
+        NAME here for {{ data().product_id }}
       <div class="itemPrice">
-        {{ data().product.price * data().count | currency }}
+        <!-- {{ data().product.price * data().count | currency }} -->
+          PRICE here
       </div>
     </div>
     <div class="buttons">

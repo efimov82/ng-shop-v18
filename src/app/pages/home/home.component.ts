@@ -7,7 +7,7 @@ import {
   PaginationComponent,
   ProductComponent,
 } from '../../components';
-import { IProduct } from '../../models';
+import { Product } from '../../models';
 import { CartService, ProductsService } from '../../services';
 
 @Component({
@@ -25,9 +25,9 @@ import { CartService, ProductsService } from '../../services';
   styleUrl: './home.component.scss',
 })
 export class HomeComponent implements OnInit {
-  public products!: Signal<Map<number, IProduct>>;
+  public products!: Signal<Map<number, Product>>;
   public page: number = 1;
-  public itemOnPage: number = 6;
+  public itemOnPage: number = 2;
   public totalItems!: Signal<number>;
   public countPages: Signal<number> = computed(() =>
     Math.round(this.totalItems() / this.itemOnPage)

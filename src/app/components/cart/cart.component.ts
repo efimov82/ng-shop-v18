@@ -2,7 +2,7 @@ import { CurrencyPipe, KeyValuePipe } from '@angular/common';
 import { Component, OnInit, Signal } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
-import { ICartItem } from '../../models';
+import { OrderItemDto } from '../../models';
 import { CartService } from '../../services';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 
@@ -14,7 +14,7 @@ import { CartItemComponent } from '../cart-item/cart-item.component';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent implements OnInit {
-  public cartItems!: Signal<Map<number, ICartItem>>;
+  public cartItems!: Signal<Map<number, OrderItemDto>>;
 
   constructor(public cartService: CartService, private router: Router) {}
 

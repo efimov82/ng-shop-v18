@@ -15,7 +15,7 @@ import {
   FieldErrorComponent,
   ProductComponent,
 } from '../../components';
-import { DeliveryType, ICartItem, IOrder, IPersonalData } from '../../models';
+import { CreateOrderRequest, DeliveryType, OrderItemDto } from '../../models';
 import { CartService, OrdersService } from '../../services';
 
 @Component({
@@ -35,7 +35,7 @@ import { CartService, OrdersService } from '../../services';
   styleUrl: './checkout.component.scss',
 })
 export class CheckoutComponent implements OnInit {
-  public cartItems!: Signal<Map<number, ICartItem>>;
+  public cartItems!: Signal<Map<number, OrderItemDto>>;
 
   form = new FormRecord({
     firstName: new FormControl<string>('', [
@@ -129,23 +129,24 @@ export class CheckoutComponent implements OnInit {
 
     const formData = this.form.value;
 
-    const personalData: IPersonalData = {
-      firstName: formData['firstName']?.toString() ?? '',
-      lastName: formData['lastName']?.toString() ?? '',
-      phone: formData['phone']?.toString() ?? '',
-      email: formData['email']?.toString() ?? '',
-    };
+    // const personalData: IPersonalData = {
+    //   firstName: formData['firstName']?.toString() ?? '',
+    //   lastName: formData['lastName']?.toString() ?? '',
+    //   phone: formData['phone']?.toString() ?? '',
+    //   email: formData['email']?.toString() ?? '',
+    // };
 
-    const itemsArr: ICartItem[] = [];
+    // TODO check use this.cartItems()
+    const itemsArr: OrderItemDto[] = [];
     this.cartItems().forEach((item) => {
       itemsArr.push(item);
     });
 
-    const data: IOrder = {
-      personalData,
+    const data: CreateOrderRequest = {
+      // personalData,
       items: itemsArr,
-      deliveryDate: formData['deliveryDate']?.toString() ?? '',
-      deliveryType: Number(formData['deliveryType']) ?? 1,
+      delivery_date: formData['deliveryDate']?.toString() ?? '',
+      comment: 'Some comment',
     };
 
     this.ordersService.createOrder(data).subscribe(() => {
