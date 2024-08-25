@@ -13,3 +13,4 @@ export * from './generated/model/customerOrder';
 export * from './generated/model/orderItem';
 export * from './generated/model/orderItemDto';
 export * from './generated/model/product';
+export * from './generated/model/user';
