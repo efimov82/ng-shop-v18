@@ -36,6 +36,15 @@ export class UserService extends BaseService {
     return null;
   }
 
+  public login(): void {
+
+  }
+
+  public logout(): void {
+    window.sessionStorage.removeItem(this._authTokenStorageKey);
+    window.localStorage.removeItem(this._authTokenStorageKey);
+  }
+
   public setAuthToken(value: string, saveToLocalStorage = false): void {
     window.sessionStorage.setItem(this._authTokenStorageKey, value);
 

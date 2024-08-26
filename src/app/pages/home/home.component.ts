@@ -27,10 +27,10 @@ import { CartService, ProductsService } from '../../services';
 export class HomeComponent implements OnInit {
   public products!: Signal<Map<number, Product>>;
   public page: number = 1;
-  public itemOnPage: number = 2;
+  public itemOnPage: number = 6;
   public totalItems!: Signal<number>;
   public countPages: Signal<number> = computed(() =>
-    Math.round(this.totalItems() / this.itemOnPage)
+    Math.round(this.totalItems() / this.itemOnPage) + 1
   );
 
   constructor(

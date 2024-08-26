@@ -6,18 +6,3 @@
   }
 }
 
-.main {
-  .content {
-    margin: 20px 15px;
-    @media (min-width: 500px) {
-      margin: 30px 60px;
-      // max-width: 800px;
-    }
-  }
-}
-
-footer {
-  .content {
-    text-align: center;
-  }
-}

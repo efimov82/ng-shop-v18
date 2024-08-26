@@ -1,4 +1,5 @@
 <div class="container">
+  @if (cartItems().size > 0) {
   <div class="products-list">
     @for (cartItem of cartItems() | keyvalue; track cartItem.key) {
     <app-cart-item
@@ -9,6 +10,11 @@
     }
   </div>
   <div class="total-sum">Total sum: {{ getTotalPrice() | currency }}</div>
+} @else {
+  <div class="">
+    <p>Your cart is empty.</p>
+  </div>
+}
 
   <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <div class="mb-3">

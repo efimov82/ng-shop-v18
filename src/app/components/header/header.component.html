@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-light mainMenu">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">
+      <img src="/favicon.ico" alt="NG" /> Signals shop</a
+    >
+
+    <div class="navbar-right-container">
+      <div class="navbar-right-content">
+        <a [routerLink]="['/checkout']" class="btn btn-primary mx-2">
+          <i class="fa-solid fa-cart-plus"></i>
+          <!-- {{ cartService.getCartItemsCount() }} items -->
+        </a>
+
+        <div class="current-user">
+          @if (store.user()?.email) {
+          <a [routerLink]="['/profile']" class="btn btn-primary">
+            <i class="fa-solid fa-user"></i>
+          </a>
+          <p>email: {{ store.user()?.email }}</p>
+          <button (click)="logout()">logout</button>
+
+          } @if (!store.user()?.email) {
+          <a [routerLink]="['/login']" class="btn btn-primary">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </a>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

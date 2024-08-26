@@ -1,7 +1,15 @@
 <div class="card productCard">
   <div class="card-body {{ getClassNameForCard() }}">
     <!-- <h5 class="card-title">{{ data().name }}</h5> -->
-    <p><img class="card-image" src="/assets/images/{{ data().image }}" alt="{{ data().name}} image" /></p>
+    <div>
+      <img
+        class="card-image"
+        src="/assets/images/{{ data().image }}"
+        width="100px"
+        height="100px"
+        alt="{{ data().name }} image"
+      />
+    </div>
     <p class="card-text">{{ data().description }}</p>
     <div class="cardInfo">
       <div class="itemPrice">
