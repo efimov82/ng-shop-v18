@@ -5,7 +5,11 @@ import {
 } from '@angular/core';
 import { provideRouter, withInMemoryScrolling } from '@angular/router';
 import { routes } from './app.routes';
-import { AuthInterceptor, LoginInterceptor } from './interceptors';
+import {
+  AuthInterceptor,
+  LoaderHttpInterceptor,
+  LoginInterceptor,
+} from './interceptors';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -15,7 +19,13 @@ export const appConfig: ApplicationConfig = {
         scrollPositionRestoration: 'top',
       })
     ),
-    provideHttpClient(withInterceptors([AuthInterceptor, LoginInterceptor])),
+    provideHttpClient(
+      withInterceptors([
+        AuthInterceptor,
+        LoginInterceptor,
+        LoaderHttpInterceptor,
+      ])
+    ),
     provideExperimentalZonelessChangeDetection(),
   ],
 };

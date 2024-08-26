@@ -3,17 +3,20 @@ import {
   HttpInterceptorFn,
   HttpRequest,
 } from '@angular/common/http';
+import { UserService } from '../services/user.service';
+import { inject } from '@angular/core';
 
 export const AuthInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
   next: HttpHandlerFn
 ) => {
+  const userService = inject(UserService);
   // const userToken = sessionStorage.getItem('authToken');
-  const userToken = 'token12312123123';
+  const authToken = userService.getAuthToken(); //'token12312123123';
 
-  if (userToken) {
+  if (authToken) {
     const modifiedReq = req.clone({
-      headers: req.headers.set('Authorization', `Bearer ${userToken}`),
+      headers: req.headers.set('Authorization', `Bearer ${authToken}`),
     });
 
     return next(modifiedReq);

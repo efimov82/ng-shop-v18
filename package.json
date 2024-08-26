@@ -1,6 +1,6 @@
 {
   "name": "shop-signals",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -23,6 +23,9 @@
     "@angular/router": "^18.1.4",
     "@fortawesome/angular-fontawesome": "^0.15.0",
     "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@ngrx/operators": "^18.0.2",
+    "@ngrx/signals": "^18.0.2",
+    "@ngrx/store": "^18.0.2",
     "bootstrap": "^5.3.3",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0"
