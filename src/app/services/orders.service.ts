@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CreateOrderRequest, Order } from '../models';
+import { CreateOrderRequest, CustomerOrder } from '../models';
 import { BaseService } from './base.service';
 
 @Injectable({
@@ -15,13 +15,13 @@ export class OrdersService extends BaseService {
   /*
    * Get list orders created current customer
    */
-  public getOrders(): Order[] {
+  public getOrders(): CustomerOrder[] {
     // TODO: implement this feature with REST API
 
     return [];
   }
 
-  public createOrder(data: CreateOrderRequest): Observable<Order> {
+  public createOrder(data: CreateOrderRequest): Observable<CustomerOrder> {
     // TODO: impliment REST API request + loader here
     // const order = { // Order
     //   orderItems: data.orderItems,
@@ -30,6 +30,6 @@ export class OrdersService extends BaseService {
       // deliveryType: data.deliveryType,
     // };
 
-    return this.http.post<Order>(`${this.baseUrl}/user/orders`, data);
+    return this.http.post<CustomerOrder>(`${this.baseUrl}/user/orders`, data);
   }
 }
