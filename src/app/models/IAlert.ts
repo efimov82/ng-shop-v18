@@ -1,5 +1,5 @@
 export interface IAlert {
   id?: number;
   message: string;
-  type?: string;
+  type?: 'success' | 'warning' | 'danger' | 'error';
 }

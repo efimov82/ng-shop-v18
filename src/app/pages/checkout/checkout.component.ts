@@ -37,7 +37,7 @@ import { CartService, OrdersService } from '../../services';
 export class CheckoutComponent implements OnInit {
   public cartItems!: Signal<Map<number, OrderItemDto>>;
 
-  form = new FormRecord({
+  public form = new FormRecord({
     firstName: new FormControl<string>('', [
       Validators.required,
       Validators.minLength(3),

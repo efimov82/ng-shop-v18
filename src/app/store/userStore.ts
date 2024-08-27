@@ -29,11 +29,11 @@ export class UserStore {
   readonly isLoading = this.#state.isLoading;
   readonly alerts = this.#state.alerts;
 
-  readonly loadUser = rxMethod<void>(
+  readonly loadUserData = rxMethod<void>(
     pipe(
       tap(() => patchState(this.#state, { isLoading: true })),
       exhaustMap(() => {
-        return this.#userService.getCurrentUser().pipe(
+        return this.#userService.getUserPrtofile().pipe(
           tapResponse({
             next: (user: User) => {
               patchState(this.#state, { user });

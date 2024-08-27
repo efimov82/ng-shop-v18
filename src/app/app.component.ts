@@ -42,6 +42,6 @@ export class AppComponent implements OnInit {
     // TODO check it is realy need?
     this.isLoading = this.loaderService.isLoading();
 
-    this.store.loadUser();
+    this.store.loadUserData();
   }
 }

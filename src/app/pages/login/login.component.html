@@ -1,24 +1,30 @@
 <div class="form-signin">
-  <form>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
     <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    @if (errorMessage) {
+      <div class="alert alert-danger">{{errorMessage}}</div>
+    }
 
     <div class="form-floating mb-3">
       <input
+        id="emailInput"
+        formControlName="email"
         type="email"
         class="form-control"
-        id="floatingInput"
         placeholder="name@example.com"
       />
-      <label for="floatingInput">Email address</label>
+      <label for="emailInput">Email address</label>
     </div>
     <div class="form-floating">
       <input
+        id="passwordInput"
+        formControlName="password"
         type="password"
         class="form-control"
-        id="floatingPassword"
         placeholder="Password"
       />
-      <label for="floatingPassword">Password</label>
+      <label for="passwordInput">Password</label>
     </div>
 
     <div class="checkbox my-3">

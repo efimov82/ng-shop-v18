@@ -11,8 +11,7 @@ export const AuthInterceptor: HttpInterceptorFn = (
   next: HttpHandlerFn
 ) => {
   const userService = inject(UserService);
-  // const userToken = sessionStorage.getItem('authToken');
-  const authToken = userService.getAuthToken(); //'token12312123123';
+  const authToken = userService.getAuthToken();
 
   if (authToken) {
     const modifiedReq = req.clone({
