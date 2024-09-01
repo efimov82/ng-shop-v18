@@ -10,16 +10,20 @@ export class AlertService {
   private timerId: any;
 
   constructor() {
-    // this.add({ message: 'test message' });
-    // this.add({ message: 'test message2' });
-    // this.add({ message: 'test message3' });
-
-    // this.timerId = setInterval(() => {
-    //   this.removeFirstAlert();
-    // }, 3000);
+    this.add({ message: 'test message' });
+    this.add({ message: 'test message2' });
+    this.add({ message: 'test message3' });
   }
   public add(alert: IAlert): void {
     alert.id = this.currentId;
+
+    // set interval for remove alerts
+    if (this.currentId === 1) {
+      this.timerId = setInterval(() => {
+        this.removeFirstAlert();
+      }, 5000);
+    }
+
     this.alerts().set(this.currentId++, alert);
   }
 
@@ -32,16 +36,16 @@ export class AlertService {
     const firstAlert = allerts.keys().next();
     allerts.delete(firstAlert.value);
 
-    console.log(firstAlert.value);
-    console.log(allerts.size);
-    // console.log(allerts.current);
+    const newAllerts = new Map<number, IAlert>();
+    allerts.forEach((element, key) => {
+      newAllerts.set(key, element);
+    });
 
-    // this.alerts.update((value) => value.);   //set(allerts);;
+    this.alerts.set(newAllerts);
 
-    //console.log(firstAlert.value);
-    // this.alerts.set({ value});
-
-    // .delete(this.currentId);
-    console.log("removed alert");
+    if (newAllerts.size === 0) {
+      clearInterval(this.timerId);
+      this.currentId = 1;
+    }
   }
 }

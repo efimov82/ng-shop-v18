@@ -15,10 +15,9 @@ export class OrdersService extends BaseService {
   /*
    * Get list orders created current customer
    */
-  public getOrders(): CustomerOrder[] {
-    // TODO: implement this feature with REST API
-
-    return [];
+  public getOrders(): Observable<CustomerOrder[]> {
+    // TODO add params page, litim + sort orders
+    return this.http.get<CustomerOrder[]>(`${this.baseUrl}/user/orders`);
   }
 
   public createOrder(data: CreateOrderRequest): Observable<CustomerOrder> {

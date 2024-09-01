@@ -1,26 +1,30 @@
 <nav class="navbar navbar-expand-lg navbar-light mainMenu">
   <div class="container-fluid">
     <a class="navbar-brand" routerLink="/">
-      <img src="/favicon.ico" alt="NG" /> Signals shop</a
-    >
+      <img src="/favicon.ico" alt="NG" />
+      <span class="d-none d-sm-inline"> Signals shop</span>
+    </a>
 
     <div class="navbar-right-container">
       <div class="navbar-right-content">
-        <a [routerLink]="['/checkout']" class="btn btn-primary mx-2">
+        <a [routerLink]="['/checkout']" class="btn btn-primary m-1">
           <i class="fa-solid fa-cart-plus"></i>
           <!-- {{ cartService.getCartItemsCount() }} items -->
         </a>
 
         <div class="current-user">
           @if (store.user()?.email) {
-          <a [routerLink]="['/profile']" class="btn btn-primary">
+          <a [routerLink]="['/profile']" class="btn btn-primary m-1">
             <i class="fa-solid fa-user"></i>
           </a>
-          <p>email: {{ store.user()?.email }}</p>
-          <button (click)="logout()">logout</button>
+          <!-- <p>email: {{ store.user()?.email }}</p> -->
+          <a (click)="logout()" class="btn btn-danger m-1">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </a>
+          <!-- <button (click)="logout()">logout</button> -->
 
           } @if (!store.user()?.email) {
-          <a [routerLink]="['/login']" class="btn btn-primary">
+          <a [routerLink]="['/login']" class="btn btn-primary m-1">
             <i class="fa-solid fa-right-to-bracket"></i>
           </a>
           }
