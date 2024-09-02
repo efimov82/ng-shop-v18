@@ -6,6 +6,13 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+## Docker 
+
+For build and run Docker container use command
+`docker-compose up`
+
+After Navigate to `http://localhost:4200/`
+
 ### Development REST API server
 
 Run `npm run mock:server` for a run local REST API server on `http://localhost:3000/`.
