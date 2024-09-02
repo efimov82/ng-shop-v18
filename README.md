@@ -11,6 +11,10 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 Run `npm run mock:server` for a run local REST API server on `http://localhost:3000/`.
 This server use json-server. Install it with command `npm install -g json-server`.
 
+Or use real REST API from:
+https://github.com/efimov82/shop-api-symfony
+
+
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
